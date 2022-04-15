@@ -11,7 +11,8 @@ on:
       PACKAGE_NAME:
         description: 'Pip main package name'
         required: true
-        default: ${{ github.event.repository.name }}
+#        default: ${{ github.event.repository.name }}
+        default: ''
       EXTRA_PACKAGES:
         description: 'Extra packages needed for the service.'
         default: ''
@@ -40,7 +41,11 @@ jobs:
           echo ${{ github.event.inputs.PACKAGE_NAME }}
           echo ${{ github.event.inputs.EXTRA_PACKAGES }}
           echo ${{ github.event.inputs.VERSION }}
-          echo ${{ github.event.repository.name }}
+#          echo ${{ github.event.repository.name }}
+      - name: Print event data
+        env:
+          EVENT: ${{ toJSON( github.event ) }}
+        run: echo "$EVENT"
           
           
           
