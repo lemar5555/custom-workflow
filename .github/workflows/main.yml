@@ -37,7 +37,7 @@ jobs:
 
       - name: Get env
         run: |
-          echo $FOO
+          echo ${{ env.FOO }}
           echo ${{ github.event.inputs.PACKAGE_NAME }}
           echo ${{ github.event.inputs.EXTRA_PACKAGES }}
           echo ${{ github.event.inputs.VERSION }}
